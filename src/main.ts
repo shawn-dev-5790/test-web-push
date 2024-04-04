@@ -29,12 +29,10 @@ async function subscribeToPushNotifications() {
       });
 
       // Send subscription data to server
-      await fetch("http://localhost:5000/subscribe", {
+      await fetch("https://test-web-push-server.vercel.app/subscribe", {
         method: "POST",
         body: JSON.stringify(subscription),
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
       });
 
       console.log("Subscription successful:", JSON.stringify(subscription));
