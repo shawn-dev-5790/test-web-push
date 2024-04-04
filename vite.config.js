@@ -9,10 +9,10 @@ export default defineConfig({
       name: "sw",
       configureServer(server) {
         server.middlewares.use((req, res, next) => {
-          if (req.url === "/sw.js") {
+          if (req.url === "/service-worker.js") {
             res.setHeader("Content-Type", "application/javascript");
             // Use readFileSync to read the content of sw.js file
-            res.end(readFileSync("./sw.js"));
+            res.end(readFileSync("./service-worker.js"));
           } else {
             next();
           }
