@@ -1,5 +1,4 @@
 self.addEventListener("push", (event) => {
-  console.log("dd");
   const data = event.data.json();
   console.log("Push received:", data);
 
@@ -8,4 +7,11 @@ self.addEventListener("push", (event) => {
     body: "This is a push notification",
     icon: "path/to/icon.png", // Replace with the path to your notification icon
   });
+});
+self.addEventListener("notificationclick", function (event) {
+  event.notification.close();
+
+  event.waitUntil(
+    clients.openWindow("https://test-web-push-one.vercel.app/") // 특정 URL로 이동
+  );
 });
