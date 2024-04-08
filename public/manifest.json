@@ -1,4 +1,6 @@
 {
+  "id": "/",
+  "scope": "/",
   "name": "ASimpleApp",
   "short_name": "ASAP",
   "start_url": "/",
