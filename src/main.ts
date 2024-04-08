@@ -7,13 +7,15 @@ import { setupCounter } from "./counter";
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", async () => {
     try {
-      const registration = await navigator.serviceWorker.register("/service-worker.js");
+      const registration = await navigator.serviceWorker.register(
+        "/service-worker.js"
+      );
       console.log(
         "ServiceWorker registration successful with scope: ",
         registration.scope
       );
     } catch (err) {
-      console.error("ServiceWorker registration failed: ", err);
+      alert("ServiceWorker registration failed: " + err);
     }
   });
 }
@@ -37,7 +39,7 @@ async function subscribeToPushNotifications() {
 
       console.log("Subscription successful:", JSON.stringify(subscription));
     } catch (err) {
-      console.error("Failed to subscribe the user: ", err);
+      alert("Failed to subscribe the user: " + err);
     }
   }
 }
