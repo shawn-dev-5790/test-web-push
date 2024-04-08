@@ -34,7 +34,11 @@ async function subscribeToPushNotifications() {
       await fetch("https://test-web-push-server.vercel.app/subscribe", {
         method: "POST",
         body: JSON.stringify(subscription),
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Bearer 1111`,
+        },
       });
 
       console.log("Subscription successful:", JSON.stringify(subscription));
