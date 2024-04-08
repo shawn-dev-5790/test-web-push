@@ -49,7 +49,13 @@ async function subscribeToPushNotifications() {
 }
 
 // Call the function to subscribe user to push notifications
-subscribeToPushNotifications();
+
+Notification.requestPermission().then(function (permission) {
+  if (permission !== "granted") return alert("permission:" + permission);
+  console.log("푸시 알림 권한이 허용되었습니다.");
+  // 푸시 알림을 보낼 수 있는 로직 추가
+  subscribeToPushNotifications();
+});
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
